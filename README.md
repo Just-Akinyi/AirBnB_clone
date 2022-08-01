@@ -37,4 +37,4 @@ After cloning the repository Navigate to the "AirBnB_clone" repository
 
 ## Authors
 * **Djogona Mahamat Belna** <djogonamahamatbelna@gmail.com>
-* **Justin Aknyi** <@gmail.com>
+* **Justin Akinyi** <justakinyi1@gmail.com>
