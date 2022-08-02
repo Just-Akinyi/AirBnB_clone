@@ -6,14 +6,26 @@ from datetime import datetime
 
 
 class BaseModel:
-    """Base class"""
+    """Base class
+        Arttributes:
+            id(str): assign with an uuid when an instance is created
+            created_at: assigns current datetime
+            updated_at: updates current datetime
+    """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initializing Base class
         Args:
-            *args:
-            **kwargs (dict):
+            *args: a Tuple that contains all arguments
+            **kwargs: a dictionary that contains all arguments by key/value
         """
+        DATE_TIME_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
+        if kwargs:
+            for key, val in kwargs.items():
+                self.__dict__['key'] = val
+                if key in ("created_at", "update_at"):
+                    self.__dict__['key'] = datetime.strptime(val,
+                                                             DATE_TIME_FORMAT)
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.update_at = datetime.now()
