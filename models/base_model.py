@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Defines all common attributes/methods for other classes"""
-from pydoc import classname
 from uuid import uuid4
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -29,10 +29,12 @@ class BaseModel:
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.update_at = datetime.now()
+        storage.new(self)
 
     def save(self):
         """updates the attribute updated_at with the current datetime"""
         self.update_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """Returns a dictionary containing all keys/values
