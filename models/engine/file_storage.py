@@ -54,3 +54,7 @@ class FileStorage:
                 self.new(eval(class_name)(**obj_item))
         except Exception:
             pass
+
+    def update_obejts(self, ob):
+        self.__objects = ob
+        self.save()
