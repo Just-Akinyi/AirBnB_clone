@@ -22,18 +22,18 @@ class BaseModel:
         DATE_TIME_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.now()
-        self.update_at = datetime.now()
+        self.updated_at = datetime.now()
         if kwargs:
             for key, val in kwargs.items():
                 self.__dict__['key'] = val
-                if key in ("created_at", "update_at"):
+                if key in ("created_at", "updated_at"):
                     self.__dict__['key'] = datetime.strptime(val,
                                                              DATE_TIME_FORMAT)
         models.storage.new(self)
 
     def save(self):
         """updates the attribute updated_at with the current datetime"""
-        self.update_at = datetime.now()
+        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
@@ -45,7 +45,7 @@ class BaseModel:
         dictionnary = self.__dict__.copy()
         dictionnary['__class__'] = self.__class__.__name__
         dictionnary['created_at'] = self.created_at.isoformat()
-        dictionnary['update_at'] = self.update_at.isoformat()
+        dictionnary['updated_at'] = self.updated_at.isoformat()
         return dictionnary
 
     def __str__(self):
