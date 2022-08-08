@@ -19,17 +19,18 @@ class BaseModel:
             *args: a Tuple that contains all arguments
             **kwargs: a dictionary that contains all arguments by key/value
         """
-        DATE_TIME_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
+        DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
         if kwargs:
             for key, val in kwargs.items():
-                self.__dict__['key'] = val
                 if key in ("created_at", "updated_at"):
-                    self.__dict__['key'] = datetime.strptime(val,
-                                                             DATE_TIME_FORMAT)
-        models.storage.new(self)
+                    self.__dict__[key] = datetime.strptime(val, DATE_FORMAT)
+                else:
+                    self.__dict__[key] = val
+        else:
+            models.storage.new(self)
 
     def save(self):
         """updates the attribute updated_at with the current datetime"""
@@ -43,9 +44,9 @@ class BaseModel:
         of the object
         """
         dictionnary = self.__dict__.copy()
-        dictionnary['__class__'] = self.__class__.__name__
         dictionnary['created_at'] = self.created_at.isoformat()
         dictionnary['updated_at'] = self.updated_at.isoformat()
+        dictionnary['__class__'] = self.__class__.__name__
         return dictionnary
 
     def __str__(self):
