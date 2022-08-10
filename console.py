@@ -127,8 +127,8 @@ class HBNBCommand(cmd.Cmd):
         id = className[0] + "." + className[1]
         # objs[id][attr] = value
         setattr(objs[id], attr, value)
-        # models.storage.all()[identifier].save()
-        models.storage.update_obejts(objs)
+        models.storage.all()[id].save()
+        # models.storage.update_obejts(objs)
 
 
 if __name__ == '__main__':
