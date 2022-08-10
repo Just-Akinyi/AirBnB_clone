@@ -125,7 +125,9 @@ class HBNBCommand(cmd.Cmd):
         value = className[3]
         objs = storage.all()
         id = className[0] + "." + className[1]
-        objs[id][attr] = value
+        # objs[id][attr] = value
+        setattr(objs[id], attr, value)
+        # models.storage.all()[identifier].save()
         models.storage.update_obejts(objs)
 
 
