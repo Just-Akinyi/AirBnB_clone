@@ -2,12 +2,9 @@
 """Unit test for the base class base model
 """
 import unittest
-# import json
 import pep8
 from datetime import datetime
-# from io import StringIO
-# from unittest.mock import patch
-from models import base_model
+import models
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 import os
@@ -37,7 +34,7 @@ class TestBaseClass(unittest.TestCase):
 
     def test_module_doc(self):
         """ check for module documentation """
-        self.assertTrue(len(base_model.__doc__) > 0)
+        self.assertTrue(len(models.base_model.__doc__) > 0)
 
     def test_class_doc(self):
         """ check for documentation """
@@ -142,6 +139,7 @@ class TestBaseClass(unittest.TestCase):
         # Check for execution access
         is_exec_true = os.access('models/base_model.py', os.X_OK)
         self.assertTrue(is_exec_true)
+
 
 if __name__ == '__main__':
     unittest.main()
