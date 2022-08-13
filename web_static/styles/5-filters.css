@@ -3,7 +3,8 @@
     height: 70px;
     width: 100%;
     border-radius: 4px;
-    border: 1px solid #DDDDDD;
+    border: 1px #DDDDDD;
+    
 }
 .filters button {
     font-size: 18px;
@@ -19,3 +20,21 @@
 .filters button:hover {
     opacity: 90%;
 }
+.filters div{
+    
+}
+/*
+.locations, .amenities {
+    height: 100%;
+    width: 25%;
+}
+.locations{
+    border-right:1px solid #DDDDDD;
+}
+.locations h3, .amenities h3 {
+    font-weight: 600;
+}
+.locations h4, .amenities h4 {
+    font-weight: 400;
+    font-size: 14px;
+} */
