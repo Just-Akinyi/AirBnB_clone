@@ -55,9 +55,11 @@
     list-style-type: none;
     padding-bottom: 45px;
     padding-top: 30px;
+    margin-top: -3.5px;
 }
 .popover h2{
     margin-bottom: 0px;
+    margin-left: -20px;
 }
 .popover li{
     margin-bottom: 5px;
