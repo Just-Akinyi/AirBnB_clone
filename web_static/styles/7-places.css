@@ -4,6 +4,7 @@
 }
 .places h1{
     font-size: 30px;
+    margin: 2px;
 }
 .places article{
     width: 390px;
@@ -13,8 +14,16 @@
     border-radius: 4px;
     /* center horizontally */
     text-align: center;
-    display: inline-block;
+    padding:0;
 }
 .places article h2{
     font-size: 30px;
+}
+.boxes{
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    justify-content: center;
+    /* maximum width same as the container */
+    max-width: 1000px;
 }
